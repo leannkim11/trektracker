@@ -1,0 +1,7 @@
+<h1>Welcome to TrekTracker!</h1>
+<hr>
+<% @trips.each do |trip| %>
+<h3><%= link_to trip.trip_title, trip_path(trip) %></h3>
+<%= trip.user.name %>
+<% end %>
+  <!-- we want to be able to add a picture here for each trip listed -->
