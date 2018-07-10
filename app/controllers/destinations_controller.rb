@@ -32,6 +32,7 @@ before_action :get_destination, only: [:edit, :update, :destroy, :show]
       redirect_to @destination
     else
       render :edit
+    end
   end
 
   def destroy
@@ -46,7 +47,7 @@ before_action :get_destination, only: [:edit, :update, :destroy, :show]
   end
 
   def destination_params
-    params.require(:destination).permit(:city, :country)
+    params.require(:destination).permit(:city, :state, :country)
   end
 
 end
