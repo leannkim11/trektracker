@@ -1,7 +1,9 @@
-<%= @trip.name Details %>
-<%= @trip.destination.name %>
-<%= @trip.user.name%>
-<%= @trip.itinerary  %>
-<!-- <%=  @trip.picture %> -->
-<%= @trip.comment %>
+<h1>Details</h1>
+
+<%= @trip.trip_title %> <br>
+<%= @trip.destination.city%>, <%= @trip.destination.state%>, <%= @trip.destination.country%><br>
+<%= @trip.user.name%><br>
+<%= @trip.itinerary  %><br>
+
+<%= @trip.comment %><br><br>
 <%= button_to 'Edit your trip', edit_trip_path(@trip), method:'get'%>

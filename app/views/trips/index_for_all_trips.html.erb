@@ -1,0 +1,5 @@
+<h1>Trip Ideas</h1>
+<% @alltrips.each do |trip| %>
+<h3><%= link_to trip.trip_title, trip_path(trip) %></h3>
+<%= trip.user.name %>
+<% end %>

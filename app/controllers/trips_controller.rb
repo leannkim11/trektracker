@@ -1,9 +1,13 @@
 class TripsController < ApplicationController
     before_action :get_trip, only: [:show, :edit, :update, :destroy]
-    before_action :set_users, only: [:new, :create, :edit, :update]
+    before_action :set_user, only: [:index, :create, :edit, :update]
+
+    def index_for_all_trips
+      @alltrips = Trip.all
+    end
 
     def index
-      @trips = @logged_in_user.trips
+      @trips = @user.trips
     end
 
     def show
@@ -16,7 +20,8 @@ class TripsController < ApplicationController
 
     def create
       @trip = Trip.new(trip_params)
-      @trip.user = @logged_in_user
+
+      @trip.user = @user
       if @trip.save
         redirect_to @trip, notice: 'Your trip was successfully created.'
       else
@@ -48,11 +53,11 @@ class TripsController < ApplicationController
     end
 
     def trip_params
-      params.require(:trip).permit(:trip_title, :user_id, :itinerary, :comment)
+      params.require(:trip).permit(:trip_title, :user_id, :itinerary, :comment, :destination_id)
     end
 
-    def set_users
-      @users = User.all
+    def set_user
+      @user = get_logged_in_user
     end
 
 end
