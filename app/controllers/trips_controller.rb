@@ -1,12 +1,13 @@
 class TripsController < ApplicationController
     before_action :get_trip, only: [:show, :edit, :update, :destroy]
+    before_action :set_users, only: [:new, :create, :edit, :update]
 
     def index
-      @trips = Trip.all
+      @trips = @logged_in_user.trips
     end
 
     def show
-
+      @trip
     end
 
     def new
@@ -14,9 +15,10 @@ class TripsController < ApplicationController
     end
 
     def create
-      @trip = Trip.create(trip_params)
+      @trip = Trip.new(trip_params)
+      @trip.user = @logged_in_user
       if @trip.save
-        redirect_to @trip
+        redirect_to @trip, notice: 'Your trip was successfully created.'
       else
         render :new
       end
@@ -27,8 +29,7 @@ class TripsController < ApplicationController
     end
 
     def update
-      @trip.update(trip_params)
-      if @trip.save
+      if @trip.user == @logged_in_user && @trip.update(trip_params)
         redirect_to @trip
       else
         render :edit
@@ -36,7 +37,7 @@ class TripsController < ApplicationController
     end
 
     def destroy
-      @trip.destroy
+      @trip.destroy if @trip.user == @logged_in_user
       redirect_to trips_path
     end
 
@@ -48,6 +49,10 @@ class TripsController < ApplicationController
 
     def trip_params
       params.require(:trip).permit(:trip_title, :user_id, :itinerary, :comment)
+    end
+
+    def set_users
+      @users = User.all
     end
 
 end

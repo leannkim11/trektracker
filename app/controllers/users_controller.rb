@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :get_user, only: [:show, :edit, :update, :destroy]
+  before_action :authorized?, unless: [:new, :create]
 
   def index
     @users = User.all
@@ -12,9 +13,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to @user
+      log_in_user(@user.id)
+      redirect_to trips_path
     else
-      render new_user_path
+      render :new
     end
   end
 
@@ -46,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :username, :password)
   end
-  
+
 end
