@@ -1,5 +1,7 @@
 class DestinationsController < ApplicationController
 before_action :get_destination, only: [:edit, :update, :destroy, :show]
+before_action :set_user, only: [:index, :create, :edit, :update]
+# before_action :no_default_destination, only: [:index]
 
   def index
     @destinations = Destination.all
@@ -16,7 +18,7 @@ before_action :get_destination, only: [:edit, :update, :destroy, :show]
   def create
     @destination = Destination.new(destination_params)
     if @destination.save
-      redirect_to @destination
+      redirect_to new_trip_path
     else
       render :new
     end
@@ -49,5 +51,11 @@ before_action :get_destination, only: [:edit, :update, :destroy, :show]
   def destination_params
     params.require(:destination).permit(:city, :state, :country)
   end
+
+  # def no_default_destination
+  #   if @destination.city != "" || @destination.state != "" || @destination.country != ""
+  #     @destination = Destination("default", "default", "default")
+  #   end
+  # end
 
 end

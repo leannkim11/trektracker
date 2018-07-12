@@ -1,6 +1,6 @@
 <%= button_to 'Logout', logout_path, :method => :delete %>
 <hr>
-<h1>Enter your destination!</h1>
+<h1>Edit your destination!</h1>
 <hr>
 For United States
 <%= form_with model: @destination do |f| %>
@@ -24,4 +24,5 @@ For Outside of United States
  <%= f.submit %>
 <% end %>
 
-<br><%= button_to "back", new_trip_path, method: 'get' %>
+<br><%= button_to "create new trip", new_trip_path, method: 'get' %>
+<br><%= button_to "back to my trips", trips_path, method: 'get' %>

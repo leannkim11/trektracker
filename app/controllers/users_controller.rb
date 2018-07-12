@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :get_user, only: [:show, :edit, :update, :destroy]
+  # before_action :get_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:index, :create, :edit, :update, :show]
   before_action :authorized?, unless: [:new, :create]
 
   def index
@@ -42,10 +43,14 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-  private
-  def get_user
-    @user = User.find(params[:id])
+  def index
+    @users = User.all
   end
+
+  private
+  # def get_user
+  #   @user = User.find(params[:id])
+  # end
 
   def user_params
     params.require(:user).permit(:name, :email, :username, :password)
