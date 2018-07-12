@@ -1,13 +1,15 @@
-<%= button_to 'Logout', logout_path, method:'delete'%>
+<%= button_to 'Logout', logout_path, :method => :delete %>
+<%= button_to 'Your Profile', @user, method: 'get' %>
 <hr>
+<%= button_to "view my trips", trips_path, method: 'get' %>
 <h1>Trip Ideas</h1>
-  <% @alltrips.each do |trip| %>
-    <% if trip.trip_title != "" %>
-    <%= link_to trip.trip_title, trip_path(trip) %>
-    :: <%= trip.user.username %>
-  <% end %> <br>
+<% @alltrips.each do |trip| %>
+  <% if trip.trip_title != "" %>
+  <%= link_to trip.trip_title, trip_path(trip) %></h3>
+  :: <%= trip.user.username %><br>
+  <% end %>
 <% end %>
 
-<%= link_to "back", :back %>
 <br>
-<%= button_to 'back to your trips', trips_path, method: 'get' %>
+<%= button_to "view all destinations", destinations_path, method: 'get' %>
+<%= button_to "back", :back, method: 'get' %>

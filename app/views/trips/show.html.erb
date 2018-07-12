@@ -1,17 +1,13 @@
-<%= button_to 'Logout', logout_path, method:'delete'%>
-<hr><hr>
-<h1>Details</h1>
+<%= button_to 'Logout', logout_path, :method => :delete %>
+<hr>
+<h1>Trip Details</h1>
 
 <%= @trip.trip_title %> <br>
-<%= @trip.destination.city%>, <%= @trip.destination.state%>, <%= @trip.destination.country%><br>
 <%= @trip.user.name%><br>
 <%= @trip.itinerary  %><br>
-
+<img src = '<%=@trip.image_url%>' width="640"><br>
 <%= @trip.comment %><br><br>
 <%= button_to 'Edit your trip', edit_trip_path(@trip), method:'get'%>
-<%= button_to 'Logout', logout_path, method:'delete'%>
-<br>
-<%= link_to "back", :back %>
-<br>
-<%= button_to 'back to all trips', alltrips_path, method: 'get' %>
-<%= button_to 'back to your trips', trips_path, method: 'get' %>
+<%= button_to "back to my trips", trips_path, method: 'get' %>
+<%= button_to "view all destinations", destinations_path, method: 'get' %>
+<%= button_to "delete", @trip, method: 'delete' %>
