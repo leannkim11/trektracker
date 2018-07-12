@@ -1,9 +1,11 @@
+
 <h1>Welcome To TrekTracker</h1>
 <h3>🌞 Share Your Experience With Us! 🌞 </h3>
 <hr>
 <hr>
 <br>
-
+Log in to start exploring
+<br><br>
 <%= form_with(scope: "session", url: sessions_path, local: true) do |form| %>
   <% if @error %>
     <div id="error_explanation">
@@ -30,5 +32,4 @@
   </div>
 <% end %>
 <br>
-
-  <%= button_to 'Sign Up for an account', new_user_path, method: 'get' %>
+<h5>if not already,</h5><%= button_to 'Sign Up for an account', new_user_path, method: 'get' %>

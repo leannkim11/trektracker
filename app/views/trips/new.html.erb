@@ -1,24 +1,33 @@
+<%= button_to 'Logout', logout_path, :method => :delete %>
+<hr>
 <h1>Enter your trip!</h1>
 <hr>
 <%= form_with model: @trip do |f| %>
 <!-- (model: trip, local: true) -->
+<%= f.label :city %>
+<%= f.collection_select :destination_id, Destination.all, :id, :city%>
+
+<%= f.label :state %>
+<%= f.collection_select :destination_id, Destination.all, :id, :state%>
+
+<%= f.label :country %>
+<%= f.collection_select :destination_id, Destination.all, :id, :country%>
+<br>
+If not listed, <%= link_to "add destination", new_destination_path %>
+<br>
+
 <%= f.label :trip_title, 'Name Your Trip' %>
 <%= f.text_field :trip_title %><br><br>
 <%= f.label :itinerary %>
 <%= f.text_area :itinerary %><br><br>
-<!--add field to submit your trip picture -->
+<%= f.label :"Picture" %>
+<%= f.file_field :photo %><br><br>
 <%= f.label :comment %>
 <%= f.text_area :comment %><br><br>
 <!-- need to come back to this -->
+<%= f.submit %><br>
 
-    <%= f.label :city %>
-    <%= f.collection_select :destination_id, Destination.all, :id, :city%>
-
-    <%= f.label :state %>
-    <%= f.collection_select :destination_id, Destination.all, :id, :state%>
-
-    <%= f.label :country %>
-        <%= f.collection_select :destination_id, Destination.all, :id, :country%>
-        <%= f.submit %><br>
 <% end %>
-If not listed, <%= button_to "add destination", new_destination_path, method: 'get' %><br><br>
+<br><br>
+
+<br><%= button_to "back", :back, method: 'get' %>

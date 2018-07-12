@@ -1,5 +1,15 @@
+<%= button_to 'Logout', logout_path, :method => :delete %>
+<%= button_to 'Your Profile', @user, method: 'get' %>
+<hr>
+<%= button_to "view my trips", trips_path, method: 'get' %>
 <h1>Trip Ideas</h1>
 <% @alltrips.each do |trip| %>
-<h3><%= link_to trip.trip_title, trip_path(trip) %></h3>
-<%= trip.user.name %>
+  <% if trip.trip_title != "" %>
+  <%= link_to trip.trip_title, trip_path(trip) %></h3>
+  :: <%= trip.user.username %><br>
+  <% end %>
 <% end %>
+
+<br>
+<%= button_to "view all destinations", destinations_path, method: 'get' %>
+<%= button_to "back", :back, method: 'get' %>

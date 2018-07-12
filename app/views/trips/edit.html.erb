@@ -1,7 +1,19 @@
-<h1>Update your trip!</h1>
+<h1>Edit your trip!</h1>
 <hr>
 <%= form_with model: @trip do |f| %>
 <!-- (model: trip, local: true) -->
+<%= f.label :city %>
+<%= f.collection_select :destination_id, Destination.all, :id, :city%>
+
+<%= f.label :state %>
+<%= f.collection_select :destination_id, Destination.all, :id, :state%>
+
+<%= f.label :country %>
+<%= f.collection_select :destination_id, Destination.all, :id, :country%>
+<br>
+If not listed, <%= link_to "add destination", new_destination_path %>
+<br>
+
 <%= f.label :trip_title, 'Name Your Trip' %>
 <%= f.text_field :trip_title %><br><br>
 <%= f.label :itinerary %>
@@ -9,12 +21,12 @@
 <!--add field to submit your trip picture -->
 <%= f.label :comment %>
 <%= f.text_area :comment %><br><br>
-<%= f.label :city %>
-<%= f.collection_select :destination_id, Destination.all, :id, :city%>
-<%= f.label :country %>
-<%= f.collection_select :destination_id, Destination.all, :id, :country%><br><br>
-If not listed, <%= button_to "add destination", new_destination_path, method: 'get' %><br><br>
-<%= f.submit %><br><br>
+<!-- need to come back to this -->
+<%= f.submit %><br>
+
 <% end %>
 
 <%= button_to "back", :back, method: 'get' %>
+<br>
+<%= button_to 'back to all trips', alltrips_path, method: 'get' %>
+<%= button_to 'back to your trips', trips_path, method: 'get' %>

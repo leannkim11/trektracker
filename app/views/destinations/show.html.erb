@@ -1,3 +1,25 @@
+<<<<<<< HEAD
 <h1>DESTINATIONNN</h1>
 <%= @destination.city%>, <%= @destination.state %>, <%= @destination.country %><br<br>
 <%= button_to 'Back', :back, method: 'get' %>
+=======
+<%= button_to 'Logout', logout_path, :method => :delete %>
+<hr>
+<h1>Destination</h1>
+City: <%= @destination.city%><br>
+State: <%= @destination.state %><br>
+Country: <%= @destination.country %><br>
+<br>
+
+<ul>
+  Itineraries for this City
+<% @destination.trips.each do |t| %>
+ <li><%= link_to t.trip_title, t %></li>
+<% end %>
+</ul>
+
+<br>
+<br><%= button_to "back", :back, method: 'get' %>
+<%= button_to "edit", edit_destination_path, method: 'get' %>
+<%= button_to "delete", @destination, method: 'delete' %>
+>>>>>>> d6320f7e58bb99bb8c7f02d211e12c5710d8054b
