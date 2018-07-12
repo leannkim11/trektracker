@@ -1,0 +1,10 @@
+<% @destinations.each do |d| %>
+<% link_to 'Destination:', d%>
+<% d.city %>,
+<% d.state %>,
+<% d.country %>
+<br>
+<% end %>
+
+<%= button_to 'back to all trips', alltrips_path, method: 'get' %>
+<%= button_to 'back to your trips', trips_path, method: 'get' %>

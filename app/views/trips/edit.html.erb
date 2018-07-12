@@ -1,3 +1,6 @@
+<%= button_to 'Logout', logout_path, method:'delete'%>
+Currently logged in as [<%= @user.username%>]
+<hr>
 <h1>Update your trip!</h1>
 <hr>
 <%= form_with model: @trip do |f| %>
@@ -18,3 +21,6 @@ If not listed, <%= button_to "add destination", new_destination_path, method: 'g
 <% end %>
 
 <%= button_to "back", :back, method: 'get' %>
+<br>
+<%= button_to 'back to all trips', alltrips_path, method: 'get' %>
+<%= button_to 'back to your trips', trips_path, method: 'get' %>

@@ -16,7 +16,7 @@ before_action :get_destination, only: [:edit, :update, :destroy, :show]
   def create
     @destination = Destination.new(destination_params)
     if @destination.save
-      redirect_to @destination
+      redirect_to new_trip_path
     else
       render :new
     end

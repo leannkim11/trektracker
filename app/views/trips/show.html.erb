@@ -1,3 +1,5 @@
+<%= button_to 'Logout', logout_path, method:'delete'%>
+<hr><hr>
 <h1>Details</h1>
 
 <%= @trip.trip_title %> <br>
@@ -7,3 +9,9 @@
 
 <%= @trip.comment %><br><br>
 <%= button_to 'Edit your trip', edit_trip_path(@trip), method:'get'%>
+<%= button_to 'Logout', logout_path, method:'delete'%>
+<br>
+<%= link_to "back", :back %>
+<br>
+<%= button_to 'back to all trips', alltrips_path, method: 'get' %>
+<%= button_to 'back to your trips', trips_path, method: 'get' %>

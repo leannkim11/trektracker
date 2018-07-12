@@ -1,2 +1,10 @@
+<%= button_to 'Logout', logout_path, method:'delete'%>
+<hr>
 <h1>DESTINATIONNN</h1>
 <%= @destination.city%>, <%= @destination.state %>, <%= @destination.country %>
+<br><br>
+<%= button_to "back", :back, method: 'get' %>
+<%= button_to "delete", @destination, method: 'delete' %>
+<br>
+<%= button_to 'back to all trips', alltrips_path, method: 'get' %>
+<%= button_to 'back to your trips', trips_path, method: 'get' %>
