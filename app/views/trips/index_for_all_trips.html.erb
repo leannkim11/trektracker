@@ -6,6 +6,7 @@
 <% @alltrips.each do |trip| %>
   <% if trip.trip_title != "" %>
   <%= link_to trip.trip_title, trip_path(trip) %></h3>
+  <%= link_to "edit", edit_trip_path(trip) %>
   :: <%= trip.user.username %><br>
   <% end %>
 <% end %>

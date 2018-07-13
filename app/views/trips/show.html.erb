@@ -2,12 +2,13 @@
 <hr>
 <h1>Trip Details</h1>
 
-<%= @trip.trip_title %> <br>
-<%= @trip.user.name%><br>
-<%= @trip.itinerary  %><br>
-<img src = '<%=@trip.image_url%>' width="640"><br>
-<%= @trip.comment %><br><br>
+Title :: <%= @trip.trip_title %> <br>
+Name :: <%= @trip.user.name%><br>
+Itinerary :: <%= @trip.itinerary  %><br>
+Pic :: <br> <img src = '<%=@trip.image_url%>' width="640"><br>
+Comment :: <%= @trip.comment %><br><br>
 <%= button_to 'Edit your trip', edit_trip_path(@trip), method:'get'%>
+<%= button_to "delete", @trip, method: 'delete' %>
+<br>
 <%= button_to "back to my trips", trips_path, method: 'get' %>
 <%= button_to "view all destinations", destinations_path, method: 'get' %>
-<%= button_to "delete", @trip, method: 'delete' %>

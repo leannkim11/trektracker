@@ -1,15 +1,16 @@
 <%= button_to 'Logout', logout_path, :method => :delete %>
 <hr>
 
-Click for more information about the Destination <br>
-
+<h3>Click the city for more information</h3> <br>
+  <ul>
   <% @destinations.each do |d| %>
-    <% if d.state != nil %>
-  US Destinations :: <br>
-    <%= link_to d.city, d%> <%= d.state%> <%= d.country%><br><br>
+   <% if d.state != nil %>
+  [Category] : USA <br>
+    <li><%= link_to d.city, d%> <%= d.state%> <%= d.country%></li><br><br>
   <% else %>
-  Abroad :: <br>
-    <%= link_to d.city, d%> <%= d.country%><br><br>
+  [Category] : Overseas <br>
+    <li><%= link_to d.city, d%> <%= d.country%></li><br><br>
   <% end %>
 <% end %>
+</ul>
 <%= button_to "back to my trips", trips_path, method: 'get' %>
