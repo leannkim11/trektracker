@@ -7,16 +7,16 @@
 <%= form_with model: @trip do |f| %>
 <!-- (model: trip, local: true) -->
 <%= f.label :city %>
-<%= f.collection_select :destination_id, Destination.all, :id, :city%>
+<%= f.collection_select :destination_id, Destination.all, :id, :city, {:include_blank => 'Please Select'}%>
 
 <%= f.label :state %>
-<%= f.collection_select :destination_id, Destination.all, :id, :state%>
+<%= f.collection_select :destination_id, Destination.all, :id, :state, {:include_blank => 'Please Select'}%>
 
 <%= f.label :country %>
-<%= f.collection_select :destination_id, Destination.all, :id, :country%>
+<%= f.collection_select :destination_id, Destination.all, :id, :country, {:include_blank => 'Please Select'} %>
 <br>
 If not listed, <%= link_to "add destination", new_destination_path %>
-<br>
+<br><br>
 
 <%= f.label :trip_title, 'Name Your Trip' %>
 <%= f.text_field :trip_title %><br><br>
