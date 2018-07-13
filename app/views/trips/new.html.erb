@@ -1,7 +1,7 @@
-<%= button_to 'Logout', logout_path, :method => :delete %>
-<hr>
+<header>
 <h1>Enter your trip!</h1>
-<hr>
+</header>
+<body class="content">
 <%= form_with model: @trip do |f| %>
 <!-- (model: trip, local: true) -->
 <%= f.label :city %>
@@ -31,3 +31,4 @@ If not listed, <%= link_to "add destination", new_destination_path %>
 <br><br>
 
 <br><%= button_to "back", :back, method: 'get' %>
+</body>

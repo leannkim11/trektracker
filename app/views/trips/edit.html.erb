@@ -1,5 +1,9 @@
+<header>
 <h1>Edit your trip!</h1>
-<hr>
+</header>
+
+<body class="content">
+<br><br>
 <%= form_with model: @trip do |f| %>
 <!-- (model: trip, local: true) -->
 <%= f.label :city %>
@@ -26,8 +30,7 @@ If not listed, <%= link_to "add destination", new_destination_path %>
 <%= f.submit %><br>
 
 <% end %>
-
-<%= button_to "back", :back, method: 'get' %>
 <br>
-<%= button_to 'back to all trips', alltrips_path, method: 'get' %>
-<%= button_to 'back to your trips', trips_path, method: 'get' %>
+<%= link_to "back", :back, method: 'get' %> or 
+<%= link_to 'back to all trips', alltrips_path, method: 'get' %>
+</body>

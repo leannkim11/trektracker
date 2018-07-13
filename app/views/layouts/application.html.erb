@@ -13,7 +13,10 @@
 
 
   <body>
+    <div class="trek-logo"> <%= link_to 'TrekTracker ✈️ ✈️', trips_path, class:'logo' %>
+    <%= link_to 'Log Out', logout_path, method: 'delete', class:'logo' %>
 
+    </div>
     <%= yield %>
 
 

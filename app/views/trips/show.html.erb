@@ -1,14 +1,14 @@
-<%= button_to 'Logout', logout_path, :method => :delete %>
-<hr>
+<header>
 <h1>Trip Details</h1>
-
-Title :: <%= @trip.trip_title %> <br>
-Name :: <%= @trip.user.name%><br>
-Itinerary :: <%= @trip.itinerary  %><br>
-Pic :: <br> <img src = '<%=@trip.image_url%>' width="640"><br>
-Comment :: <%= @trip.comment %><br><br>
-<%= button_to 'Edit your trip', edit_trip_path(@trip), method:'get'%>
-<%= button_to "delete", @trip, method: 'delete' %>
+</header>
 <br>
-<%= button_to "back to my trips", trips_path, method: 'get' %>
+<body class="content">
+<h5>Title :: </h5> <%= @trip.trip_title %> <br><br>
+<h5> Itinerary :: </h5> <%= @trip.itinerary  %><br><br>
+<h5> Pic :: </h5> <br> <img src = '<%=@trip.image_url%>' width="640" style="border:2px solid grey"><br><br>
+<h5> Comment :: </h5> <%= @trip.comment %><br><br>
+<%= link_to 'edit', edit_trip_path(@trip)%><br>
+<%= link_to "delete", @trip, method: 'delete' %> <br><br>
 <%= button_to "view all destinations", destinations_path, method: 'get' %>
+<br>
+</body>

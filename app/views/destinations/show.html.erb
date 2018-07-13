@@ -1,19 +1,27 @@
-<%= button_to 'Logout', logout_path, :method => :delete %>
-<hr>
+<header>
 <h1>Destination</h1>
+</header>
+<br><br>
+<body class="content">
+<div class="destination">
 City: <%= @destination.city%><br>
 State: <%= @destination.state %><br>
-Country: <%= @destination.country %><br>
+Country: <%= @destination.country %>
+</div>
+
+<div>
 <br>
+<div>Itineraries for this City</div>
 
-<ul>
-  Itineraries for this City
-<% @destination.trips.each do |t| %>
- <li><%= link_to t.trip_title, t %></li>
-<% end %>
-</ul>
+  <% @destination.trips.each do |t| %>
+   <li><%= link_to t.trip_title, t %></li>
+  <% end %>
 
+</div>
+<br>
+<%= link_to "edit", edit_destination_path, method: 'get' %>
+<%= link_to "delete", @destination, method: 'delete' %>
 <br>
 <br><%= button_to "back", :back, method: 'get' %>
-<%= button_to "edit", edit_destination_path, method: 'get' %>
-<%= button_to "delete", @destination, method: 'delete' %>
+
+</body>

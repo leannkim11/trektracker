@@ -42,8 +42,10 @@ class TripsController < ApplicationController
     end
 
     def destroy
-      @trip.destroy if @trip.user == @logged_in_user
+      @trip.destroy
+      if @trip.user == @logged_in_user
       redirect_to trips_path
+      end
     end
 
     private

@@ -1,15 +1,26 @@
-logged in as [<%=@user.username%>] <br> <%= button_to 'Logout', logout_path, :method => :delete %>
-<hr>
-<h1>Welcome <%= @user.name %></h1>
-<hr>
+<div class="trek-logo">
+  logged in as [<%=@user.username%>] 🍷
+</div>
+
+<header>
+  <h1>Welcome <%= @user.name %></h1>
+</header>
+
+
+<body class="content">
+  <%= link_to 'Check out other itineraries', alltrips_path%> or
+  <%= link_to "view all destinations", destinations_path %><br><br>
 <h3>View your past trips</h3>
+
 <% @trips.each do |trip| %>
-<%= link_to trip.trip_title, trip_path(trip) %><br>
+<div class="trip">
+<%= link_to trip.trip_title, trip_path(trip) %><br><br>
+  <img src = '<%=trip.image_url%>' width="350"><br>
+</div>
 <% end %>
+</ul>
   <!-- we want to be able to add a picture here for each trip listed -->
   <br>
 <%= button_to 'Create a new trip!', new_trip_path, method: 'get' %>
-<%= button_to 'Check out other itineraries', alltrips_path, method: 'get' %>
 <br>
-<%= button_to "view all destinations", destinations_path, method: 'get' %>
-<%= button_to "back", :back, method: 'get' %>
+</body>

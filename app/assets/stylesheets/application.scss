@@ -1,0 +1,52 @@
+@font-face{
+  font-family: 'Libre Baskerville', serif;
+  src: url('/assets/fonts/LibreBaskerville-Bold');
+}
+.logo {
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.trek-logo {
+  text-align: right;
+  background-color: #F4B9B2;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+
+header {
+    background-color: #354157;
+    height: 60px;
+    font-family: Verdana, Geneva, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.destination {
+    background-color: #DAEDBD;
+    width: 250px;
+    border: 3px solid #E2AEA5;
+    padding: 25px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trip {
+    background-color: #DAEDBD;
+    text-align: center;
+    width: 410px;
+    border: 3px solid #E2AEA5;
+    padding: 25px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.content {
+  background-color: #BADBE0;
+  text-align: center;
+
+}
