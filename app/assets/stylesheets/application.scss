@@ -23,7 +23,7 @@ header {
 }
 
 .destination {
-    background-color: #DAEDBD;
+    background-color: #BADBE0;
     width: 250px;
     border: 3px solid #E2AEA5;
     padding: 25px;
@@ -34,7 +34,7 @@ header {
 }
 
 .trip {
-    background-color: #DAEDBD;
+    background-color: #BADBE0;
     text-align: center;
     width: 410px;
     border: 3px solid #E2AEA5;
@@ -49,4 +49,10 @@ header {
   background-color: #BADBE0;
   text-align: center;
 
+}
+
+.headline{
+  text-align: center;
+  background-color: #E5B181;
+  color: white;
 }

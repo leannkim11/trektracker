@@ -11,7 +11,9 @@
   <%= link_to 'Check out other itineraries', alltrips_path%> or
   <%= link_to "view all destinations", destinations_path %><br><br>
 <h3>View your past trips</h3>
-
+<br>
+<%= image_tag("world.png") %>
+<br><br>
 <% @trips.each do |trip| %>
 <div class="trip">
 <%= link_to trip.trip_title, trip_path(trip) %><br><br>

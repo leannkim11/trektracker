@@ -1,15 +1,19 @@
 <header>
 <h1>TrekTracker</h1>
-<h3>🌞 Share Your Experience With Us! 🌞 </h3>
+
 <hr>
 <hr>
 <hr>
 </header>
+
+<h3 class="headline"> Share ⚯ Love ⚭ Travel  </h3>
+<body class="content">
 <br>
 Log in to start exploring
-
 <br><br>
-<body>
+<%= image_tag("827403_global_512x512.png") %>
+<br><br>
+
 <%= form_with(scope: "session", url: sessions_path, local: true) do |form| %>
   <% if @error %>
     <div id="error_explanation">
@@ -37,5 +41,6 @@ Log in to start exploring
 <% end %>
 
 <br>
-<div>if not already,<%= button_to 'Sign Up for an account', new_user_path, method: 'get' %> </div>
+<div><%= link_to 'Join Us Here', new_user_path, method: 'get' %> </div>
+<br><br>
 </body>

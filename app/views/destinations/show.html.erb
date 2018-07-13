@@ -3,6 +3,7 @@
 </header>
 <br><br>
 <body class="content">
+  <%= image_tag("map-location.png") %><br><br>
 <div class="destination">
 City: <%= @destination.city%><br>
 State: <%= @destination.state %><br>
@@ -14,7 +15,7 @@ Country: <%= @destination.country %>
 <div>Itineraries for this City</div>
 
   <% @destination.trips.each do |t| %>
-   <li><%= link_to t.trip_title, t %></li>
+  <%= link_to t.trip_title, t %><br>
   <% end %>
 
 </div>

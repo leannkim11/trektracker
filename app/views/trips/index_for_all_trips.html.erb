@@ -3,6 +3,9 @@
 </header>
 
 <body class="content"><br>
+  <br>
+  <%= image_tag("world.png") %>
+  <br><br>
 <%= link_to "view all destinations", destinations_path %><br><br>
 <% @alltrips.each do |trip| %>
   <% if trip.trip_title != "" %>

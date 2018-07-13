@@ -5,7 +5,10 @@
 <body class="content">
 
 <div>
+  <br>
+  <%= image_tag("placeholder.png") %><br><br>
   For United States
+  <br>
   <%= form_with model: @destination do |f| %>
    <%= f.label :city%>
    <%= f.text_field :city %>
@@ -17,8 +20,10 @@
    <%= f.submit %>
   <% end %>
 </div>
+<br><br>
 <div>
   For Outside of United States
+  <br>
   <%= form_with model: @destination do |f| %>
    <%= f.label :city%>
    <%= f.text_field :city %>

@@ -2,6 +2,8 @@
 <h1>Enter your trip!</h1>
 </header>
 <body class="content">
+  <br>
+<%= image_tag("placeholder.png") %><br><br>
 <%= form_with model: @trip do |f| %>
 <!-- (model: trip, local: true) -->
 <%= f.label :city %>
@@ -26,9 +28,7 @@ If not listed, <%= link_to "add destination", new_destination_path %>
 <%= f.text_area :comment %><br><br>
 <!-- need to come back to this -->
 <%= f.submit %><br>
-
 <% end %>
-<br><br>
-
-<br><%= button_to "back", :back, method: 'get' %>
+<br>
+<br><%= link_to "back", :back, method: 'get' %>
 </body>

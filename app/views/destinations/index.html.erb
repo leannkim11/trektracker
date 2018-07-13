@@ -4,13 +4,14 @@
 <br>
 <body class="content">
 <br>
+  <%= image_tag("map-location.png") %><br><br>
   <% @destinations.each do |d| %>
    <% if d.state != nil %>
   [Category] : USA <br>
-    <li><%= link_to d.city, d%> <%= d.state%> <%= d.country%></li><br><br>
+    <%= link_to d.city, d%> <%= d.state%> <%= d.country%><br><br>
   <% else %>
   [Category] : Overseas <br>
-    <li><%= link_to d.city, d%> <%= d.country%></li><br><br>
+    <%= link_to d.city, d%> <%= d.country%><br><br>
   <% end %>
 <% end %>
 
