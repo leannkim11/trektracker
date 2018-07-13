@@ -20,8 +20,7 @@ Country: <%= @destination.country %>
 
 </div>
 <br>
-<%= link_to "edit", edit_destination_path, method: 'get' %>
-<%= link_to "delete", @destination, method: 'delete' %>
+<%= link_to "edit", edit_destination_path, method: 'get' %> | <%= link_to "delete", @destination, method: 'delete' %>
 <br>
 <br><%= button_to "back", :back, method: 'get' %>
 
